@@ -1,8 +1,12 @@
 ﻿using System;
 namespace Seminar7
 {
-	public struct IMessageSource
+	public interface IMessageSource<T>
 	{
-	}
+        void Send(ChatMessage message, T toAddr);
+        ChatMessage Receive(ref T fromAddr);
+        T CreateNewT();
+        T CopyT(T t);
+    }
 }
 
